@@ -98,47 +98,13 @@
 \chapter{Présentation du projet}
 \paragraph{}Pour cette deuxième année de Master Informatique, nous avons comme chaque année un projet à réaliser. Actuellement en Master option de l'Ingénierie du logiciel libre, nous avons choisi un projet qui est basé sur le logiciel libre. Celui-ci est sous la responsabilité de Mr \responsableProjet.
 %% ************************************************** %
-\section{\pepit}
-\paragraph{}PEPIT est né le 15 mai 2004 à Mouscron en Belgique. Il s'agissait, à l'époque, de créer une plateforme numérique d'échange d'exercices entre 5 écoles primaires et le premier degré d'une école secondaire.
-\paragraph{}Le projet a connu différentes évolutions au fil du temps, la troisième version du site est actuellement en ligne. Cette dernière version contient plus de 1250 exercices en ligne, la variété et la qualité de nos exercices sont appréciés les mois "scolaires" par plus de 200.000 "visiteurs uniques".
-%% ************************************************** %
-\section{Et nous, que vient-on faire là dedans ?}
-\paragraph{}Actuellement, le pepit.be est un portail d'accès à des applications Flash, où il est possible de jouer directement sur le site ou de télécharger le jeu sur l'ordinateur (PC ou MAC).
-\paragraph{}Notre objectif est de réaliser une application Android, destinée principalement aux tablettes. Cette application regroupera les jeux, mais il ne redirigerons pas vers une application en Flash mais vers une version Android, les jeux devrons \^{e}tre redéveloppé. Celle-ci sera utilisé pour l'apprentissage des enfants, il faut donc faire attention à l'ergonomie de l'application.
-\paragraph{}Nous avons la charge de d'étudier l'actuel portails, concevoir, développer l'application Android. Et comme challenge supplémentaire, une API qui permettrai de construire des jeux sans passer par \java{}.
+\input{presentation}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chap :
 \chapter{Ressources et outils utilisés}
 %% ************************************************** %
-\section{Documentation}
-\subsection{\googleDrive}
-Il a été décidé lors de notre première réunion (voir annexe \ref{reunion1} page \pageref{reunion1}) que les documents de travails (exemple: résumé de réunion, glossaire, ...) sont a stocker dans un repertoire de \googleDrive{}. Les document de type \og{}\google{}\fg{} sont à privilégier.
-\subsection{Latex}
-Nous nous sommes servi du langage \LaTeX{} uniquement pour la rédaction de ce rapport et pour notre présentation.
-%% ************************************************** %
-\section{Développement}
-%Pour développer des applications \android{}, \google{} préconise l'utilisation d'\eclipse{} sur \ubuntu{}.
-\begin{description}
-\item[\os{}: ] Le développement se fait sur différentes distributions \linux{}
-\item[\ide{} et language: ] Pour le développement, nous utilisons le SDK de \android{} couplé avec l'\ide{} \eclipse{}. Le language utilisé est \java{}
-\item[Gestionnaire de depôts: ] Ce projet étant réalisé en équipe qui ne se voit pas régulièrement. Il a été décidé dans un premier temps (par \responsableProjet{}) d'utiliser un gestionnaire de source. Nous utilisons \github{} à la fois pour les sources du projet mais aussi (dans un second projet \github{}) les sources de notre rapport
-\end{description}
-%%% ************************************************** %
-\section{Android}
-Version min du SDK :
-\begin{description}
-\item[API : ] 12
-\item[Version : ] 3.1 
-\item[Codename : ] Honeycomb 
-\end{description}
-
-Version pour développement du SDK :
-\begin{description}
-\item[API : ] 17
-\item[Version : ] 4.2 
-\item[Codename : ] Jelly Bean
-\end{description}
+\input{ressources_et_outils_utilises}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chap :
@@ -156,69 +122,34 @@ Nous avons donc détérminé, pour le premier \sprint{}, nos t\^aches:
 \end{description}
 Ces tâches sont détaillés ci-dessous. Après leur réalisation, une seconde réunion a eu lieu ouvrant donc le 2\ieme{} \sprint{} (voir partie~\ref{sprint2} page~\pageref{sprint2}).
 \subsection{Analyse}
-\paragraph{}Après le lancement du projet, il était nécessaire de faire un état des lieux sur \pepitSite{}. Nous avons donc fait une analyse portant sur les exercices se trouvant sur le site web.
-
-La structure des données est la suivante : Niveau -> Thème -> Exercice -> Module
-
-\begin{description}
-\item[Niveaux : ] Maternelles, Niveau 1, Niveau 2, Niveau 3, Niveau 4, Niveau 5, Niveau 6, Conjugaison, Table de multiplication, Enseignement spécial, Pour tous et Secondaire.
-\item[Thèmes : ] Français, Mathématiques et Divers.
-\end{description}
-
-\paragraph{}L'application web utilise de nombreuses images, ce qui pose un problème sous \android, l'application sera de ce faite plus lourde. Ainsi que certains exercices utilisent des animations, ce qui demande une certaine ma\^{i}trise du développement mobile.
-\paragraph{}L'utilisation du clavier revient souvent, mais ce-ci n'est pas un problème pour l'application mobile.
-
+\input{analyse}
 \subsection{Formes courantes}
-\paragraph{}Deux structures d'exercices reviennent souvent :
-\begin{description}
-\item[Comparaison : ] entre des images ou des mots.
-\item[Question / Réponse : ] avec proposition, phrase avec des morceaux manquants ou encore un calcul sans résultat.
-\end{description}
+\input{formes_courantes}
 \subsection{Architecture}
-L'architecture a été réalisé sous la forme d'un enchainement de screens (fenêtres de l'application) très simples (aucune notion de charte graphique, aucun style particulier, pas d'image, ...) permettant de savoir que devait contenir chaque screen (bouton, texte, etc) ainsi que les liens entre ces différentes screen (\og{} si j'appuie sur ce bouton, je vais où ?\fg{}).
+\input{architecture}
 %%% ************************************************** %
 \section{2\ieme{} \sprint{} (en cours)}
 \label{sprint2}
 \subsection{Maquettes}
-\paragraph{}Pour créer une interface mobile, il faut se mettre dans la peau de l'utilisateur, car une application mobile ne se conçoit pas comme un site web ou une application PC par exemple. Celle-ci va être utiliser en tactile avec un écran plus petit et de taille variable.
-
-\paragraph{}En suivant l'architecture de l'application, nous avons donc crée l'interface utilisateur. Celle-ci est disponible en annexe, ce n'est pas le design final mais la structure, elle oui.
-
+\input{maquettes}
 \subsection{Design}
-
+\input{design}
 \subsection{Charte graphique}
-\paragraph{}Elle va contenir l'ensemble des règles fondamentales d'utilisation des signes graphiques qui constituent l'identité graphique d'un projet.
-\paragraph{}Dans ce document, nous avons défini les couleurs à utiliser pour le développement des exercices, pour garder une harmonie dans l'application. Egalement, nous allons y retrouver les maquettes du design avec les vues de l'application. En pièce jointe de cette charte, sera disponible les fichiers xml à utiliser dans le code pour le design des nouvelles activités de l'application. Pour l'instant le design n'est pas définitif, mais le sera prochainement.
+\input{charte_graphique}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chap :
 \chapter*{Bilan et conclusion}
 %% ************************************************** %
 \section*{Bilan}
-???
+\input{bilan}
 %% ************************************************** %
 \section*{Conclusion}
-???
-
+\input{conclusion}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ANNEXES
 \appendix 
+\include{annexes}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chap :
-\chapter{Références}
-\begin{itemize}
-\item[Pepit.be :] Site web pepit, portails de jeux éducatifs
-\end{itemize}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Chap :
-\chapter{Scripts de réunions}
-\section*{1\iere{} réunion (29/10/2012)}
-\label{reunion1}
-\includepdf{\dossierpdf reunion1_29_10_2012_debut_du_projet}
-\section*{2\ieme{} réunion (26/11/2012)}
-\includepdf{\dossierpdf reunion2_26_11_2012}
-\section*{3\ieme{} réunion (17/12/2012)}
-\includepdf{\dossierpdf reunion3_17_12_2012}
 \end{document}
