@@ -22,7 +22,9 @@
 *.nav
 *.nlo
 *.out
+# Les seuls documents pdf autorisés sont dans le dossier documents_externes/
 *.pdf
+!documents_externes/*.pdf
 *.pdfsync
 *.ps
 *.snm
