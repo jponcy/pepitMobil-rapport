@@ -1,0 +1,46 @@
+\paragraph{}Nous avons besoins de stocker des données au seins de notre application, pour les profils utilisateurs, les scores, la liste des exercices, ...
+
+\subsubsection{SQLite 3}
+\paragraph{}C'est une base de données relationnelle écrite en langage C, qui est accessible en SQL. Cette base de données est directement intégrée dans les programmes, par rapport à MySQL et PostgreSQL qui sont des bases de données client-serveur. L'intégralité de la base de données (déclarations, tables, index et données) est stockée dans un fichier indépendant de la plateforme. Et surtout c'est cette base de données qui est préconisée sous Android.
+\paragraph{}Notre choix c'est porté sur SQLite 3, car celle-ci est directement utilisable dans Android.
+
+\subsubsection{Dictionnaire de données}
+\begin{tabbing}
+\begin{tabular}{l l l l l}
+	\hline
+	Libellé de la propriété & Table & Nom du champ & Type & Taille \\
+	\hline
+	Numéro unique par niveau & levels & id & integer & \\	
+	Nom du niveau & levels & name & varchar & 50 \\
+	Alias du niveau & levels & label & varchar & 150 \\
+	Description du niveau & levels & sub\_label & varchar & 150 \\
+	Numéro unique par matière & subjects & id & integer & \\
+	Nom de la matière & subjects & name & varchar & 50 \\
+	Numéro du niveau lié à la matière & subjects & id\_level & integer	 & \\
+	Numéro unique par thème & topics & id & integer & \\
+	Nom du thème & topics & name & varchar & 50 \\
+	Numéro de la matière lié à un thème & topics & id\_subject & 	integer & \\
+	Nom du zip du plugin & topics & plugin\_name & varchar & 50 \\
+	Description du thème & topics & label & varchar & 50 \\
+	Numéro unique par profil & profils & id & integer & \\
+	Nom du profil & profils & name & varchar & 50 \\
+	Avatar du profil & profils & avatar & varchar & 10 \\
+	Numéro unique par score & scores & id & integer & \\
+	Numéro unique du plugin (topic) & scores & id\_plugin & integer & \\
+	Numéro unique du profil & score & id\_profil & integer & \\
+	Point par plugin (topic) & score & point & integer & \\
+	Date du score & score & date & integer & \\
+\end{tabular}
+\end{tabbing}
+
+\subsubsection{Modèle Conceptuel de Données}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=14cm]{\dossierimages mcd}
+	\end{center}
+	\caption{Maquettes de l'application}
+	\label{Maquettes de l'application}
+\end{figure}
+
+\subsubsection{Model View Controler}
+\paragraph{}Nous avons mis en place un système se basant sur le système MVC, avec la création de modèles et de contr\^{o}lleurs. Ce qui simplifie le développement et la mise à jour.
