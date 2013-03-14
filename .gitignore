@@ -34,3 +34,7 @@
 *.vrb
 *.xdy
 *.tdo
+
+
+#dev
+exe.sh
