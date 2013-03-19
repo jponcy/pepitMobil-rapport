@@ -1,3 +1,16 @@
+\subsubsection{Modification de la \bdd{}}
+Une petite modification a dû avoir lieu sur la \bdd{}. Le champ \og{}available\_version\fg{} a été rajouté à la table \og{}topics\fg{}. Ce champ est un entier correspondant à la version actuellement installé du \plugin{} sur la tablette. S'il n'est pas installé sur le périphérique, ce champ vaut \og{}$0$\fg{}.
+
+Le numéro de version d'un \plugin{} est un simple entier que l'on increment à chaque nouvelle version. Il est donc extremement facile de savoir si le \plugin{} est installé ou même à jour.
+
 \subsubsection{Navigation et téléchargement d'un plugin}
 Les \plugin s sont téléchargés lorsque l'utilisateur sélectionne un Topic (si le \plugin{} associé n'a jamais été téléchargé). Une demande lui ai faite pour savoir s'il veut vraiment télécharger et installer le plugin. 
 Si oui, le plugin est téléchargé puis installé (installer veut aussi dire que l'on déclare le plugin disponible dans la \bdd{}).
+
+\subsubsection{Améliorations encore à faire}
+Des améliorations sont encore à faire sur ce système de \plugin{}:
+\begin{itemize}
+    \item Installation groupé de \plugin s:
+    \newline Permettre à l'utilisateur de pouvoir selectionner plusieurs plugin à télécharger en un seul coup, par exemple tous exercice de mathématiques de niveau maternelle)
+    \item Mise-à-jour de tous les plugins avec une ancienne version au démarage de l'application (si internet et accessible et que l'utilisateur accepte)
+\end{itemize}
