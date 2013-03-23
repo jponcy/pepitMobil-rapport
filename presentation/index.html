@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Pepit Mobil</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/impress-perso.css">
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div id="first" class="step slide">
+        <h1>Pepit Mobil</h1>
+        <h3>Romain Daquin - Jonathan Poncy</h3>
+        <h3 class="date"><!-- automatique --></h3>
+        <h6>Université du Littoral - Calais</h6>
+    </div>
+
+    <div class="step slide">
+        <q>Plan</q>
+        <ul>
+            <li>Pepit ?</li>
+            <li>Actuellement</li>
+            <li>Notre mission</li>
+            <li>Notre environnement</li>
+            <li>La structure</li>
+            <li>L'interface</li>
+            <li>La base de données</li>
+            <li>Bilan / Conclusion</li>
+        </ul>
+    </div>
+
+    <div class="step slide">
+        <q>Questions ?</q>
+        <q>Thank you for your attention.</q>
+    </div>
+</div>
+
+<!-- <div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div> -->
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src="js/impress.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+    var nbSlides = $(".slide").length;
+    $(".slide").each(function(index){
+        var slideCurrent = index+1;
+
+        /* Footer construct */
+        $(this).append("<footer>Slide "+slideCurrent+"/"+nbSlides+"</footer>");
+        
+        /* Position data-x */
+        $(this).attr("data-x",index*1000);
+
+        /* Position data-y */
+        $(this).attr("data-y","-1500");
+    });
+    
+    /* Set date */
+    var now = new Date();
+    var months = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+    $(".date").text(now.getDate()+" "+months[now.getMonth()]+" "+now.getFullYear());
+
+    impress().init();
+</script>
+</body>
+</html>
