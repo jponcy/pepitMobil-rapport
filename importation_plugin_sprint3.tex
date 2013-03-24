@@ -1,47 +1,45 @@
 \subsubsection{Les plugins}
-Au niveau fichier, un plugin et un fichier \og{}zip\fg{} contenant le \jar{} (archive de classes java) de l'exercice ainsi que les ressources necessaire au bon fonctionnement de l'exercice placé dans 2 sous-dossier: \og{}drawable\fg{} et \og{}sounds\fg{}. Chaque plugin est donc constitué de cette façon.
+Au niveau fichier, un plugin est un fichier \og{}zip\fg{} contenant le \jar{} (archive de classes java) de l'exercice ainsi que les ressources nécessaires au bon fonctionnement de l'exercice placé dans 2 sous-dossiers: \og{}drawable\fg{} et \og{}sounds\fg{}. Chaque plugin est donc constitué de cette façon.
 
 Le nom du plugin est unique, c'est en fait une concaténation d'informations: le niveau de l'exercice, son thème ainsi que son nom. Par exemple \og{}m\_francais\_lelales\fg{} signifie que ce plugin correspond à l'exercice \og{}lelales\fg{}, qui est un exercice de français de niveau maternelle.
 
 \subsubsection{Stockage des plugins}
 \label{importation_plugin-stockage}
-Tous les plugins seront mis à disposition dans un même dossier sur un serveur distant. Leur réferencement a lieu par le biai d'un fichier JSON. Ce fichier contient la liste trié (par niveau puis thème) de tous les plugins téléchargables.
+Tous les plugins seront mis à disposition dans un même dossier sur un serveur distant. Leur réferencement a lieu par le biais d'un fichier JSON. Ce fichier contient la liste triée (par niveau puis thème) de tous les plugins téléchargables.
 
-Au niveau de l'application, les plugins téléchargés par l'utilisateur sont stockés localement sur l'appareil. Leur référencement ce fait par la base de données locale (voir la partie~\ref{base_de_donnees} pour plus de précision sur la base de données).
+Au niveau de l'application, les plugins téléchargés par l'utilisateur sont stockés localement sur l'appareil. Leur référencement se fait par la base de données locale (voir la partie~\ref{base_de_donnees} pour plus de précision sur la base de données).
 
 \subsubsection{Test accessibilité internet}
 La tablette est capable de tester si l'accès internet est actif ou non sur la tablette à tout moment.
 
 \subsubsection{Synchronisation des listes}
-Une synchronisation de la liste des plugins disponibles sur le serveur distant se fait à chaque démarage de l'application si une connexion internet est disponible (actuellement sans demande de permition à l'utilisateur).
+Une synchronisation de la liste des plugins disponibles sur le serveur distant se fait à chaque démarage de l'application si une connexion internet est disponible (actuellement sans demande de permission à l'utilisateur).
 Cette synchronisation se fait de la manière suivante:
 \begin{itemize}
-    \item telechargement du fichier JSON
+    \item téléchargement du fichier JSON
     \item lecture (avec paring) du fichier
     \item comparaison/synchronisation avec la \bdd{} locale:
     \begin{itemize}
         \item ajout de nouveaux plugins disponible
         \item actualisation du niveau de version disponible
-        \item plugin devennu indisponible non géré (on considère que l'on ne retirera jamais d'exercice)
+        \item plugin devenu indisponible non géré (on considère que l'on ne retirera jamais d'exercice)
     \end{itemize}
 \end{itemize}
-%Téléchargement de la liste des plugins disponible: la liste des plugins disponibles est totalement géré (téléchargement et mise-à-jour), mais les niveaux et les thèmes sont encore insérés manuellement par l'application principale. 
-%Cette mise-à-jour ce fait par le téléchargement du fichier JSON (voir partie~\ref{importation_plugin-stockage}), ce fichier est lu entièrement puis comparé avec la base de données locale afin de faire les ajouts/modifications nécessaires. 
-Soulignons bien que cette procédure ne télécharge aucun \plugin{} et n'en mets aucun à jour. Elle actualise simplement la \bdd{} locale permettant ainsi de connaitre la liste totale de plugins disponible ainsi que leur numéro de version actuelle.
+Soulignons bien que cette procédure ne télécharge aucun \plugin{} et n'en met aucun à jour. Elle actualise simplement la \bdd{} locale permettant ainsi de connaitre la liste totale de plugins disponibles ainsi que leur numéro de version actuelle.
 
 \subsubsection{Téléchargement}
 \label{importation_plugin-telechargement}
-Une fonction de téléchargement d'un plugin est disponible dans l'API mais n'est encore appelé à aucun endroit. Cette fonction télécharge par paquet l'archive du \plugin{} par rapport à son nom (unique) de \plugin{}.
+Une fonction de téléchargement d'un plugin est disponible dans l'API mais n'est encore appelée à aucun endroit. Cette fonction télécharge par paquet l'archive du \plugin{} par rapport à son nom (unique) de \plugin{}.
 
 \subsubsection{Amélioration prévus}
 Il y a quatre principales améliorations à apporter à cette partie:
 \begin{itemize}
     \item synchronisation totale de la liste des \plugin{}:
-    \newline Comme dit précedament, seul les plugin sont mis-à-jour. La liste des niveaux et des thèmes et encore ajouter de manière manuelle dans l'applcation principale. La synchronisation doit donc toucher aussi ces deux niveaux (la \bdd{} locale sera complétement vide au premier lancement de l'application)
+    \newline Comme dit précedemment, seuls les plugins sont mis-à-jour. La liste des niveaux et des thèmes est encore ajouter de manière manuelle dans l'applcation principale. La synchronisation doit donc toucher aussi ces deux niveaux (la \bdd{} locale sera complétement vide au premier lancement de l'application)
     \item téléchargement d'un \plugin{}:
-    \newline La méthode le permettant est disponible mais non-utilisé.
+    \newline La méthode le permettant est disponible mais non-utilisée.
     \item avertissement pour l'utilisateur:
-    \newline Une demande de permission doit être faite à l'utilisateur pour toutes manipulations demandant un accès internet (en prévennant pour les coûts suplémentaires dû à la taille des plugins, etc)
+    \newline Une demande de permission doit être faite à l'utilisateur pour toutes manipulations demandant un accès internet (en prévenant pour les coûts suplémentaires dus à la taille des plugins, etc)
     \item l'adresse du serveur distant:
-    \newline Actuellement stocké en brut dans le code, elle devra être géré par rapport aux préférences
+    \newline Actuellement stockée en brut dans le code, elle devra être gérée par rapport aux préférences
 \end{itemize}
