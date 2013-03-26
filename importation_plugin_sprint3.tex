@@ -5,19 +5,19 @@ Le nom du plugin est unique, c'est en fait une concaténation d'informations: le
 
 \subsubsection{Stockage des plugins}
 \label{importation_plugin-stockage}
-Tous les plugins seront mis à disposition dans un même dossier sur un serveur distant. Leur réferencement a lieu par le biais d'un fichier JSON. Ce fichier contient la liste triée (par niveau puis thème) de tous les plugins téléchargables.
+Tous les plugins seront mis à disposition dans un même dossier sur un serveur distant. Leur réferencement a lieu par le biais d'un fichier JSON. Ce fichier contient la liste triée (par niveau puis thème) de tous les plugins téléchargeables.
 
 Au niveau de l'application, les plugins téléchargés par l'utilisateur sont stockés localement sur l'appareil. Leur référencement se fait par la base de données locale (voir la partie~\ref{base_de_donnees} pour plus de précision sur la base de données).
 
 \subsubsection{Test accessibilité internet}
-La tablette est capable de tester si l'accès internet est actif ou non sur la tablette à tout moment.
+La tablette est capable de tester, à tout moment, si son accès internet est actif ou non.
 
 \subsubsection{Synchronisation des listes}
 Une synchronisation de la liste des plugins disponibles sur le serveur distant se fait à chaque démarage de l'application si une connexion internet est disponible (actuellement sans demande de permission à l'utilisateur).
 Cette synchronisation se fait de la manière suivante:
 \begin{itemize}
     \item téléchargement du fichier JSON
-    \item lecture (avec paring) du fichier
+    \item lecture (avec parsing) du fichier
     \item comparaison/synchronisation avec la \bdd{} locale:
     \begin{itemize}
         \item ajout de nouveaux plugins disponible
@@ -29,17 +29,17 @@ Soulignons bien que cette procédure ne télécharge aucun \plugin{} et n'en met
 
 \subsubsection{Téléchargement}
 \label{importation_plugin-telechargement}
-Une fonction de téléchargement d'un plugin est disponible dans l'API mais n'est encore appelée à aucun endroit. Cette fonction télécharge par paquet l'archive du \plugin{} par rapport à son nom (unique) de \plugin{}.
+Une fonction de téléchargement d'un plugin est disponible dans l'API mais n'est pas encore utilisée dans la version actuelle. Cette fonction télécharge par paquet l'archive du \plugin{} par rapport à son nom (unique) de \plugin{}.
 
-\subsubsection{Amélioration prévus}
+\subsubsection{Améliorations prévues}
 Il y a quatre principales améliorations à apporter à cette partie:
 \begin{itemize}
     \item synchronisation totale de la liste des \plugin{}:
-    \newline Comme dit précedemment, seuls les plugins sont mis-à-jour. La liste des niveaux et des thèmes est encore ajouter de manière manuelle dans l'applcation principale. La synchronisation doit donc toucher aussi ces deux niveaux (la \bdd{} locale sera complétement vide au premier lancement de l'application)
+    \newline Comme dit précedemment, seuls les plugins sont mis-à-jour. La liste des niveaux et des thèmes est encore ajoutée de manière manuelle dans l’application principale. La synchronisation doit donc toucher aussi ces deux niveaux (la \bdd{} locale sera complétement vide au premier lancement de l'application)
     \item téléchargement d'un \plugin{}:
     \newline La méthode le permettant est disponible mais non-utilisée.
     \item avertissement pour l'utilisateur:
-    \newline Une demande de permission doit être faite à l'utilisateur pour toutes manipulations demandant un accès internet (en prévenant pour les coûts suplémentaires dus à la taille des plugins, etc)
+    \newline Une demande de permission doit être faite à l'utilisateur pour toute manipulation nécessitant un accès internet. Cette demande sera accompagnée d'un avertissement concernant les surcoûts possibles sur la facture (téléchargement de \og{}gros\fg{} paquets).
     \item l'adresse du serveur distant:
     \newline Actuellement stockée en brut dans le code, elle devra être gérée par rapport aux préférences
 \end{itemize}
