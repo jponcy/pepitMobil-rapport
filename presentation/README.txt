@@ -24,10 +24,8 @@ diaporama :
     -> Notre avenir au sein du projet
     -> C'est notre 4ème projet au seins de l'ulco, et c'est surement le plus abouti et le meilleur que j'ai pus réalisé ici (sans dénigrer les autres). Tant par son déroulement, organisation, développement, ...
 
-
-
-
-
-
-
 --- *** Mettre quelque part que l'application maitre sera à télécharger sur le Google Play et que les plugins seront à télécharger depuis un site tier.
+
+**************************
+
+
