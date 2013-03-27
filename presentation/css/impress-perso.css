@@ -46,3 +46,12 @@
     right: 5%;
     color: #999;
 }
+
+div .left{
+    width:50%;
+    float:left;
+}
+div .right{
+    width:50%;
+    float:right;
+}
